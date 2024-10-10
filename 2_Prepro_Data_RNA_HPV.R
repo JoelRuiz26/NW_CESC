@@ -473,15 +473,20 @@ Final_A7_A9_NW <- Final_A7_A9 %>% mutate(gene = rownames(Final_A7_A9), .before =
 # Save as TSV
 vroom::vroom_write(Final_A7_A9_NW, file = "~/2_Prepro_Data_TCGA/A7_A9/Final_A7_A9_NW.tsv", delim = "\t")
 
-  #A7
+   #A7
 Factors_A7 <- Factors_A7_A9 %>% filter(HPV_clade=="A7") #[1] 66  4
 Final_A7_NW <- Final_A7_A9 %>% select(Factors_A7$specimenID) %>% 
   mutate(gene = rownames(Final_A7_A9), .before = 1) #[1] 11351    67 (+1)
+  # Save as TSV
+vroom::vroom_write(Final_A7_NW, file = "~/2_Prepro_Data_TCGA/A7_A9/Final_A7_NW.tsv", delim = "\t")
 
   #A9
 Factors_A9 <- Factors_A7_A9 %>% filter(HPV_clade=="A9") #[1] 202   4
 Final_A9_NW <- Final_A7_A9 %>% select(Factors_A9$specimenID) %>% 
   mutate(gene = rownames(Final_A7_A9), .before = 1) #[1] 11351   203 (+1)
+  # Save as TSV
+vroom::vroom_write(Final_A9_NW, file = "~/2_Prepro_Data_TCGA/A7_A9/Final_A9_NW.tsv", delim = "\t")
+
 
 #Save_image
 save.image(file = "~/2_Prepro_Data_TCGA/A7_A9/1_Prepro_Data_RNA_HPV.RData")
