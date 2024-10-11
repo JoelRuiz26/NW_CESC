@@ -457,7 +457,7 @@ dev.off()
 ###Save data
   #Final counts as TSV
 Final_A7_A9 <- counts_after_norm %>% 
-  as.data.frame() #[1] 11351   268
+  as.data.frame() %>% column_to_rownames(var = "Gene") #[1] 11351   268
 vroom::vroom_write(Final_A7_A9, file = "~/2_Prepro_Data_TCGA/A7_A9/Final_A7_A9.tsv", delim = "\t")
 
   #Factors
