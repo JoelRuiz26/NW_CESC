@@ -468,6 +468,9 @@ vroom::vroom_write(Factors_A7_A9, file = "~/2_Prepro_Data_TCGA/A7_A9/Factors_A7_
 Myannot_A7_A9 <- myannot_after_norm %>% as.data.frame() #[1] 11351     8
 vroom::vroom_write(Myannot_A7_A9, file = "~/2_Prepro_Data_TCGA/A7_A9/Myannot_A7_A9.tsv", delim = "\t")
 
+#Objet for DGE
+saveRDS(noiseqData_after_norm, file = "noiseqData_after_norm_A7A9.rds")
+
 #For AracneMUlticore:
 Final_A7_A9_NW <- Final_A7_A9 %>% mutate(gene = rownames(Final_A7_A9), .before = 1) #[1] 11351   269 (+1)
 # Save as TSV
